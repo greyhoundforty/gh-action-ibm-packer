@@ -14,12 +14,12 @@ variable "ibmcloud_api_key" {
 
 variable "region" {
   type = string
-  default = "${env("REGION")}"
+  default = "${env("IBMCLOUD_REGION")}"
 }
 
-variable "resource_group_id" {
+variable "resource_group_name" {
   type = string
-  default = "${env("RESOURCE_GROUP_ID")}"
+  default = "${env("RESOURCE_GROUP_NAME")}"
 }
 
 variable "subnet_id" {
@@ -37,9 +37,9 @@ source "ibmcloud-vpc" "dev" {
   region  = "${var.region}"
 
   subnet_id          = "${var.subnet_id}"
-  resource_group_id  = "${var.resource_group_id}"
+  resource_group_name  = "${var.resource_group_name}"
   security_group_id  = ""
-  vsi_base_image_id  = "r006-193d3ae5-17dd-4990-8ac3-ae4c1e87a25c"
+  vsi_base_image_name  = "ibm-ubuntu-22-04-4-minimal-amd64-1"
   vsi_profile        = "cx2-2x4"
   vsi_interface      = "public"
   vsi_user_data_file = ""
