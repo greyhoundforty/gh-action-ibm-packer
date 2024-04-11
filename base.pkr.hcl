@@ -7,15 +7,15 @@ packer {
   }
 }
 
-variable "ibm_api_key" {
-  type = string
-  default = "${env("IBM_API_KEY")}"
-}
+# variable "ibm_api_key" {
+#   type = string
+#   default = "${env("IBM_API_KEY")}"
+# }
 
-variable "region" {
-  type = string
-  default = "${env("REGION")}"
-}
+# variable "region" {
+#   type = string
+#   default = "${env("REGION")}"
+# }
 
 variable "resource_group_name" {
   type = string
@@ -35,8 +35,8 @@ locals {
 
 
 source "ibmcloud-vpc" "dev" {
-  api_key = "${var.ibm_api_key}"
-  region  = "${var.region}"
+  api_key = "${env("IBM_API_KEY")}"
+  region  = "${env("REGION")}"
 
   subnet_id          = "${var.subnet_id}"
   resource_group_name  = "${var.resource_group_name}"
