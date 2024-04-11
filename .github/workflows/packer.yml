@@ -17,8 +17,8 @@ jobs:
       - name: Set environment variables
         env:
           IBM_API_KEY: ${{ secrets.ibm_api_key }}
-          SUBNET_ID: ${{ vars.PK_VAR_subnet_id }}
-          REGION: ${{ vars.PK_VAR_region }}
+          SUBNET_ID: ${{ vars.subnet_id }}
+          REGION: ${{ vars.region }}
           RESOURCE_GROUP_NAME: ${{ vars.resource_group_name }}
         run: |
           echo "IBM_API_KEY=$IBM_API_KEY" >> $GITHUB_ENV
