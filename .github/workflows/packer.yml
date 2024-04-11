@@ -40,3 +40,9 @@ jobs:
       - name: Run `packer validate`
         id: validate
         run: "packer validate ./base.pkr.hcl"
+
+      - name: Run `packer build`
+        id: build
+        run: "packer build ./base.pkr.hcl"
+
+        
