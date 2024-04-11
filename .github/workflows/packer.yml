@@ -14,6 +14,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Set environment variables
+        env:
+          IBM_API_KEY: ${{ secrets.PK_VAR_ibm_api_key }}
+          SUBNET_ID: ${{ vars.PK_VAR_subnet_id }}
+          REGION: ${{ vars.PK_VAR_region }}
+          RESOURCE_GROUP_NAME: ${{ vars.resource_group_name }}
+        run: |
+          echo "IBM_API_KEY=$IBM_API_KEY" >> $GITHUB_ENV
+          echo "SUBNET_ID=$SUBNET_ID" >> $GITHUB_ENV
+          echo "REGION=$REGION" >> $GITHUB_ENV
+          echo "RESOURCE_GROUP_NAME=$RESOURCE_GROUP_NAME" >> $GITHUB_ENV
+
+
       - name: Setup `packer`
         uses: hashicorp/setup-packer@main
         id: setup
